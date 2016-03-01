@@ -1,0 +1,15 @@
+Package: bioenergmod
+Type: Package
+Title: Bioenergetics Modeling
+Version: 0.1.0
+Date: 2016-03-01
+Author: Kristen Dybala
+Maintainer: Kristen Dybala <kdybala@pointblue.org>
+Description: The bioenergmod package contains a set of functions useful for bioenergetics
+    modeling, to compare the daily energy requirements of a wildlife population of
+    interest to the daily energy supply available, taking into account dynamic habitat
+    availability and consumption in previous time steps.
+License: GPL-3
+LazyData: TRUE
+RoxygenNote: 5.0.1
+Imports: abind, ggplot2, pbapply, plyr, reshape2
