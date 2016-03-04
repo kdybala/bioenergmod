@@ -69,9 +69,9 @@ plot_bioenergmod = function(x, ylab, scale=1, xaxislab=TRUE, xmax=NULL, ymax=NUL
   p = ggplot(dat, aes(x=time, y=value/scale), environment=environment()) + geom_area(aes(fill=habitat)) + ylab(ylab) + xlab(NULL) +
     scale_y_continuous(expand=c(0,0)) + theme_classic() +
     theme(legend.title=element_blank(), legend.position=c(0,1), legend.justification=c(0,1), legend.text=element_text(size=9),
-          legend.key.height=unit(0.5,'cm'), legend.key.width=unit(0.5,'cm'),
+          legend.key.height=grid::unit(0.5,'cm'), legend.key.width=grid::unit(0.5,'cm'),
           axis.text=element_text(size=9), axis.title=element_text(size=10, vjust=1, face='plain'),
-          plot.title=element_text(hjust=0, size=10), plot.margin=unit(c(0,0,0.5,0),'lines'))
+          plot.title=element_text(hjust=0, size=10), plot.margin=grid::unit(c(0,0,0.5,0),'lines'))
   if (!is.null(palette)) {
     if (!is.null(labels)) {
       p = p + scale_fill_manual(values=palette, labels=labels)
@@ -99,6 +99,5 @@ plot_bioenergmod = function(x, ylab, scale=1, xaxislab=TRUE, xmax=NULL, ymax=NUL
     tmp = data.frame(time=c(1:length(der)), der=der)
     p = p + geom_line(data=tmp, aes(y=der/scale))
   }
-  print(p)
   return(p)
 }
