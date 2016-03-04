@@ -69,13 +69,15 @@ calculate_energy_demand = function(n, bodymass, metabolism='FMR', assimilation=0
     }
 
     if (plot==TRUE) {
-      plot(DER2/1000000, type='l', las=1, ylab='Daily energy requirement (kj/day; millions)')
-      lines(DER/1000000, lty='dashed')
+      tmp = data.frame(time=c(1:length(n)), DER=DER, DER2=DER2)
+      ggplot(tmp, aes(x=time, y=DER2/1000000)) + geom_line() + ylab('kj (millions)') +
+        geom_line(aes(y=DER), linetype='dashed')
     }
     return(DER2)
   } else {
     if (plot==TRUE) {
-      plot(DER/1000000, type='l', las=1, ylab='Daily energy requirement (kj/day; millions)')
+      tmp = data.frame(time=c(1:length(n)), DER=DER)
+      ggplot(tmp, aes(x=time, y=DER/1000000)) + geom_line() + ylab('kj (millions)')
       return(DER)
     }
   }
