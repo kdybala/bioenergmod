@@ -24,7 +24,8 @@ devtools::install_github("kdybala/bioenergmod")
 References
 ----------
 
-For details on the model's structure: Dybala KE, Reiter ME, Hickey CM, Shuford WD, Strum KM, Yarris GS. <i>In review</i>. A bioenergetics modeling approach to setting conservation objectives for non-breeding shorebirds in California's Central Valley.
+For details on the model's structure:
+Dybala KE, Reiter ME, Hickey CM, Shuford WD, Strum KM, Yarris GS. <i>In review</i>. A bioenergetics modeling approach to setting conservation objectives for non-breeding shorebirds in California's Central Valley.
 
 Example
 -------
@@ -32,8 +33,10 @@ Example
 ``` r
 library(bioenergmod)
 
-## Calculate daily energy requirements for a shorebird from population size (n), average individual body mass (kg), and assimilation efficiency.
-energy.need = calculate_energy_demand(n=c(5000,7000,10000), bodymass=c(0.1,0.08,0.05), metabolism='FMR', assimilation=0.73)
+## Calculate daily energy requirements for a shorebird from population size (n), average individual body mass (kg), 
+##  and assimilation efficiency.
+energy.need = calculate_energy_demand(n=c(5000,7000,10000), bodymass=c(0.1,0.08,0.05), 
+                                      metabolism='FMR', assimilation=0.73)
 ```
 
 ![](README-Example-1.png)<!-- -->
@@ -51,7 +54,8 @@ prop.accessible = data.frame(habitat=c(rep('A',3),rep('B',3),rep('C',3)), yday=r
                              value=rep(0.9,9))
 
 ## Calculate daily change in habitat availability:
-change = calculate_habitat_change(tothabitat=total.area, flood=prop.openwater, time='yday', value='value', accessible=prop.accessible, wetsplit=F)
+change = calculate_habitat_change(tothabitat=total.area, flood=prop.openwater, time='yday', value='value', 
+                                  accessible=prop.accessible, wetsplit=F)
 
 ## Run bioenergetics model:
 results = run_bioenergmod_loop(energyneed=energy.need, energydens=energy.density, 
@@ -69,7 +73,8 @@ plot_bioenergmod(results$energy.accessible, scale=1000000, ylab='kJ (millions)',
 
 ## Plot shortfalls in meeting daily energy requirements:
 library(ggplot2)
-ggplot(results$energy, aes(x=time, y=shortfall/1000000)) + geom_area(fill='gray80') + ylab('kJ (millions)') + theme_classic()
+ggplot(results$energy, aes(x=time, y=shortfall/1000000)) + geom_area(fill='gray80') + 
+  ylab('kJ (millions)') + theme_classic()
 ```
 
 ![](README-Example-3.png)<!-- -->
