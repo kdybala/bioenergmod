@@ -52,9 +52,8 @@ energy.need = calculate_energy_demand(n=c(5000,7000,10000), bodymass=c(0.1,0.08,
 ## 2. Specify foraging value (kJ/ha) of each land cover type:
 energy.density = data.frame(habitat=c('A','B','C'), value=c(20,15,12))
 
-
 ## 3. Quantify dynamics of foraging habitat availability:
-##    --total area of each land cover type
+##    --total area of each land cover type (ha)
 total.area = data.frame(habitat=c('A','B','C'), area=c(70000,150000,100000))
 
 ##    --proportion of total area that is available at each time step (e.g., flooded)
@@ -64,7 +63,6 @@ prop.openwater = data.frame(habitat=c(rep('A',3),rep('B',3),rep('C',3)), yday=re
 ##    --proportion of available area that is accessible at each time step (e.g. suitable depth)
 prop.accessible = data.frame(habitat=c(rep('A',3),rep('B',3),rep('C',3)), yday=rep(c(1:3),3), 
                              value=rep(0.9,9))
-
 
 ## 4. Calculate daily change in foraging habitat availability:
 change = calculate_habitat_change(tothabitat=total.area, flood=prop.openwater, time='yday', value='value', 
