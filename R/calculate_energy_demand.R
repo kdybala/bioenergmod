@@ -70,14 +70,16 @@ calculate_energy_demand = function(n, bodymass, metabolism='FMR', assimilation=0
 
     if (plot==TRUE) {
       tmp = data.frame(time=c(1:length(n)), DER=DER, DER2=DER2)
-      ggplot(tmp, aes(x=time, y=DER2/1000000)) + geom_line() + ylab('kj (millions)') +
-        geom_line(aes(y=DER), linetype='dashed')
+      p=ggplot(tmp, aes(x=time, y=DER2/1000000)) + geom_line() + ylab('kj (millions)') +
+        geom_line(aes(y=DER), linetype='dashed') + theme_classic()
+      print(p)
     }
     return(DER2)
   } else {
     if (plot==TRUE) {
       tmp = data.frame(time=c(1:length(n)), DER=DER)
-      ggplot(tmp, aes(x=time, y=DER/1000000)) + geom_line() + ylab('kj (millions)')
+      p=ggplot(tmp, aes(x=time, y=DER/1000000)) + geom_line() + ylab('kj (millions)') + theme_classic()
+      print(p)
       return(DER)
     }
   }
