@@ -22,7 +22,7 @@ The bioenergmod package contains a set of functions developed for bioenergetics 
 References
 ---------------
 For details on the model's structure:  
-Dybala KE, Reiter ME, Hickey CM, Shuford WD, Strum KM, Yarris GS. <i>In review</i>. A bioenergetics modeling approach to setting conservation objectives for non-breeding shorebirds in California's Central Valley. 
+Dybala KE, Reiter ME, Hickey CM, Shuford WD, Strum KM, Yarris GS. 2017. A bioenergetics modeling approach to setting conservation objectives for non-breeding shorebirds in California's Central Valley. <i>San Francisco Estuary and Watershed Science</i> 15(1). Available from: [https://doi.org/10.15447/sfews.2017v15iss1art2](https://doi.org/10.15447/sfews.2017v15iss1art2) 
 
 Features
 --------------
